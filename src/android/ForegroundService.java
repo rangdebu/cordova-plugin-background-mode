@@ -216,11 +216,11 @@ public class ForegroundService extends Service {
     private int getIconResId(JSONObject settings) {
         String icon = settings.optString("icon", NOTIFICATION_ICON);
 
-        // cordova-android 6 uses mipmaps
-        int resId = getIconResId(icon, "mipmap");
+        int resId = getIconResId(icon, "drawable");
 
+        // cordova-android 6 uses mipmaps
         if (resId == 0) {
-            resId = getIconResId(icon, "drawable");
+            resId = getIconResId(icon, "mipmaps");
         }
 
         return resId;
